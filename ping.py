@@ -4,9 +4,13 @@ from os import popen
 from time import sleep
 from datetime import datetime
 
+target = '8.8.8.8'
+repeat = 5
+sleeptime = 600
+
 file = open('pingtest.txt', 'w')
 while True:
-	text = popen('ping -c 5 8.8.8.8').read().split('\n')
+	text = popen(f'ping -c {repeat} {target}').read().split('\n')
 	
 	time = datetime.now()
 	result = f'{time.month:02}/{time.day:02} {time.hour:02}:{time.minute:02} -'
@@ -17,4 +21,4 @@ while True:
 			result += ' ' + line	
 	print(result)
 	file.write(result + '\n')
-	sleep(600)
+	sleep(sleeptime)
