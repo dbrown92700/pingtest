@@ -1,4 +1,4 @@
-#!python3
+#!/bin/python3
 
 from os import popen
 from time import sleep
