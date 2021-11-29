@@ -6,9 +6,8 @@ from datetime import datetime
 
 target = '8.8.8.8'
 repeat = 5
-sleeptime = 600
+sleeptime = 120
 
-file = open('pingtest.txt', 'w')
 while True:
 	text = popen(f'ping -c {repeat} {target}').read().split('\n')
 	
@@ -20,5 +19,6 @@ while True:
 		if line.find('trip') > 0:
 			result += ' ' + line	
 	print(result)
-	file.write(result + '\n')
+	with open('pingtest.txt', 'a') as file:
+		file.write(result + '\n')
 	sleep(sleeptime)
