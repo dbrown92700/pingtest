@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 from os import popen
 from time import sleep
@@ -23,7 +23,7 @@ while True:
 		if (line.find('avg') > 0):
 			linearr = re.sub('[a-zA-Z -]', '', line).lstrip('/').lstrip('=').split('/')[0:3]
 			for stat in linearr:
-				result += f'{stat:>10},'			
+				result += f'{stat:>10},'
 	print(result)
 	with open('pingtest.txt', 'a') as file:
 		file.write(result + '\n')
